@@ -1,4 +1,4 @@
-fn fuel_needed_for_mass(mass: i32) -> i32 {
+pub fn fuel_needed_for_mass(mass: i32) -> i32 {
   (mass / 3) - 2
 }
 
