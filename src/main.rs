@@ -1,5 +1,6 @@
 mod file_reader;
 mod fuel_counter_upper;
+mod intcode_computer;
 
 fn main() {
   day1_part1();
