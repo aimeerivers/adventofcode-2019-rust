@@ -19,6 +19,14 @@ pub fn total_fuel_needed_for_masses(masses: Vec<i64>) -> i64 {
   total
 }
 
+pub fn total_fuel_needed_for_masses_including_fuel(masses: Vec<i64>) -> i64 {
+  let mut total: i64 = 0;
+  for mass in masses.iter() {
+    total += fuel_needed_for_mass_including_fuel(*mass);
+  }
+  total
+}
+
 
 #[cfg(test)]
 mod test {
@@ -47,6 +55,13 @@ mod test {
     let masses: Vec<i64> = vec![12, 14, 1969, 100756];
     let expected: i64 = 2 + 2 + 654 + 33583;
     assert_eq!(expected, total_fuel_needed_for_masses(masses));
+  }
+
+  #[test]
+  fn test_total_fuel_needed_for_masses_including_fuel() {
+    let masses: Vec<i64> = vec![14, 1969, 100756];
+    let expected: i64 = 2 + 966 + 50346;
+    assert_eq!(expected, total_fuel_needed_for_masses_including_fuel(masses));
   }
 
 }
