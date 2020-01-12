@@ -1,14 +1,11 @@
 pub fn run_program(input: Vec<usize>) -> Vec<usize> {
   let mut output = input;
   let mut position = 0;
-  let mut x;
-  let mut y;
-  let mut z;
 
   while output[position] != 99 {
-    x = output[position + 1];
-    y = output[position + 2];
-    z = output[position + 3];
+    let x = output[position + 1];
+    let y = output[position + 2];
+    let z = output[position + 3];
 
     output[z] = perform_operaton(output[x], output[y], output[position]);
     position += 4;
