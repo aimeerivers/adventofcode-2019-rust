@@ -2,10 +2,10 @@ use std::fs::read_to_string;
 
 pub fn read_vec_i64_from_file(filename: &str) -> Vec<i64> {
   let input = read_to_string(filename).unwrap();
-  let masses: Vec<i64> = input.split("\n")
+  let output: Vec<i64> = input.split("\n")
     .map(|s: &str| s.parse::<i64>().unwrap())
     .collect();
-  masses
+  output
 }
 
 #[cfg(test)]
