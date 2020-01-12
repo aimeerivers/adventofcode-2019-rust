@@ -1,24 +1,24 @@
-pub fn run_program(input: Vec<usize>) -> Vec<usize> {
-  let mut output = input;
-  let mut position = 0;
+pub fn run_program(input_values: Vec<usize>) -> Vec<usize> {
+  let mut memory = input_values;
+  let mut instruction_pointer = 0;
 
-  while output[position] != 99 {
-    let x = output[position + 1];
-    let y = output[position + 2];
-    let z = output[position + 3];
+  while memory[instruction_pointer] != 99 {
+    let x = memory[instruction_pointer + 1];
+    let y = memory[instruction_pointer + 2];
+    let z = memory[instruction_pointer + 3];
 
-    output[z] = perform_operation(output[x], output[y], output[position]);
-    position += 4;
+    memory[z] = perform_instruction(memory[x], memory[y], memory[instruction_pointer]);
+    instruction_pointer += 4;
   }
 
-  output
+  memory
 }
 
-pub fn perform_operation(x: usize, y: usize, operation: usize) -> usize {
-  if operation == 1 {
-    x + y
-  } else if operation == 2 {
-    x * y
+pub fn perform_instruction(noun: usize, verb: usize, opcode: usize) -> usize {
+  if opcode == 1 {
+    noun + verb
+  } else if opcode == 2 {
+    noun * verb
   } else {
     0
   }
@@ -30,45 +30,45 @@ mod test {
 
   #[test]
   fn test_run_program_1() {
-    let input = vec![1,0,0,0,99];
+    let input_values = vec![1,0,0,0,99];
     let expected = vec![2,0,0,0,99];
-    assert_eq!(expected, run_program(input));
+    assert_eq!(expected, run_program(input_values));
   }
 
   #[test]
   fn test_run_program_2() {
-    let input = vec![2,3,0,3,99];
+    let input_values = vec![2,3,0,3,99];
     let expected = vec![2,3,0,6,99];
-    assert_eq!(expected, run_program(input));
+    assert_eq!(expected, run_program(input_values));
   }
 
   #[test]
   fn test_run_program_3() {
-    let input = vec![2,4,4,5,99,0];
+    let input_values = vec![2,4,4,5,99,0];
     let expected = vec![2,4,4,5,99,9801];
-    assert_eq!(expected, run_program(input));
+    assert_eq!(expected, run_program(input_values));
   }
 
   #[test]
   fn test_run_program_4() {
-    let input = vec![1,1,1,4,99,5,6,0,99];
+    let input_values = vec![1,1,1,4,99,5,6,0,99];
     let expected = vec![30,1,1,4,2,5,6,0,99];
-    assert_eq!(expected, run_program(input));
+    assert_eq!(expected, run_program(input_values));
   }
 
   #[test]
-  fn test_perform_addition_operation() {
-    assert_eq!(20, perform_operation(10, 10, 1));
+  fn test_perform_addition_instruction() {
+    assert_eq!(20, perform_instruction(10, 10, 1));
   }
 
   #[test]
-  fn test_perform_multiplication_operation() {
-    assert_eq!(100, perform_operation(10, 10, 2));
+  fn test_perform_multiplication_instruction() {
+    assert_eq!(100, perform_instruction(10, 10, 2));
   }
 
   #[test]
-  fn test_perform_unimplemented_operation() {
-    assert_eq!(0, perform_operation(10, 10, 3));
+  fn test_perform_unimplemented_instruction() {
+    assert_eq!(0, perform_instruction(10, 10, 3));
   }
 
 }

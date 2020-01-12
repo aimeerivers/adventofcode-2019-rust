@@ -19,9 +19,9 @@ fn day1_part2() {
 }
 
 fn day2_part1() {
-  let mut input: Vec<usize> = file_reader::read_vec_usize_from_file("input/day2.txt");
-  input[1] = 12;
-  input[2] = 2;
-  let output: Vec<usize> = intcode_computer::run_program(input);
-  assert_eq!(9581917, output[0]);
+  let mut input_values: Vec<usize> = file_reader::read_vec_usize_from_file("input/day2.txt");
+  input_values[1] = 12;
+  input_values[2] = 2;
+  let result: Vec<usize> = intcode_computer::run_program(input_values);
+  assert_eq!(9581917, result[0]);
 }
