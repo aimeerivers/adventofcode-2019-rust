@@ -6,6 +6,7 @@ fn main() {
   day1_part1();
   day1_part2();
   day2_part1();
+  day2_part2();
 }
 
 fn day1_part1() {
@@ -24,4 +25,27 @@ fn day2_part1() {
   input_values[2] = 2;
   let result: Vec<usize> = intcode_computer::run_program(input_values);
   assert_eq!(9581917, result[0]);
+}
+
+fn day2_part2() {
+  let mut noun = 0;
+  let mut verb = 0;
+  let goal = 19690720;
+
+  'outer_loop: for i in 0..100 {
+    for j in 0..100 {
+      let mut test: Vec<usize> = file_reader::read_vec_usize_from_file("input/day2.txt");
+      test[1] = i;
+      test[2] = j;
+      let result: Vec<usize> = intcode_computer::run_program(test);
+      if result[0] == goal {
+        noun = i;
+        verb = j;
+        break 'outer_loop;
+      }
+    }
+  }
+
+  let answer = (100 * noun) + verb;
+  assert_eq!(2505, answer);
 }
