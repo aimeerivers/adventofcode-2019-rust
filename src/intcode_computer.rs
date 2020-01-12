@@ -7,14 +7,14 @@ pub fn run_program(input: Vec<usize>) -> Vec<usize> {
     let y = output[position + 2];
     let z = output[position + 3];
 
-    output[z] = perform_operaton(output[x], output[y], output[position]);
+    output[z] = perform_operation(output[x], output[y], output[position]);
     position += 4;
   }
 
   output
 }
 
-pub fn perform_operaton(x: usize, y: usize, operation: usize) -> usize {
+pub fn perform_operation(x: usize, y: usize, operation: usize) -> usize {
   if operation == 1 {
     x + y
   } else if operation == 2 {
@@ -58,17 +58,17 @@ mod test {
 
   #[test]
   fn test_perform_addition_operation() {
-    assert_eq!(20, perform_operaton(10, 10, 1));
+    assert_eq!(20, perform_operation(10, 10, 1));
   }
 
   #[test]
   fn test_perform_multiplication_operation() {
-    assert_eq!(100, perform_operaton(10, 10, 2));
+    assert_eq!(100, perform_operation(10, 10, 2));
   }
 
   #[test]
   fn test_perform_unimplemented_operation() {
-    assert_eq!(0, perform_operaton(10, 10, 3));
+    assert_eq!(0, perform_operation(10, 10, 3));
   }
 
 }
