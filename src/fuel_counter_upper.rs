@@ -1,14 +1,15 @@
-pub fn fuel_needed_for_mass(mass: i32) -> i32 {
+pub fn fuel_needed_for_mass(mass: u64) -> u64 {
   (mass / 3) - 2
 }
 
-pub fn total_fuel_needed_for_masses(masses: Vec<i32>) -> i32 {
-  let mut total: i32 = 0;
+pub fn total_fuel_needed_for_masses(masses: Vec<u64>) -> u64 {
+  let mut total: u64 = 0;
   for mass in masses.iter() {
     total += fuel_needed_for_mass(*mass);
   }
   total
 }
+
 
 #[cfg(test)]
 mod test {
@@ -36,8 +37,8 @@ mod test {
 
   #[test]
   fn test_total_fuel_needed_for_masses() {
-    let masses: Vec<i32> = vec![12, 14, 1969, 100756];
-    let expected: i32 = 2 + 2 + 654 + 33583;
+    let masses: Vec<u64> = vec![12, 14, 1969, 100756];
+    let expected: u64 = 2 + 2 + 654 + 33583;
     assert_eq!(expected, total_fuel_needed_for_masses(masses));
   }
 
