@@ -57,6 +57,13 @@ mod test {
   }
 
   #[test]
+  fn test_run_program_5() {
+    let input_values = vec![1,9,10,3,2,3,11,0,99,30,40,50];
+    let expected = vec![3500,9,10,70,2,3,11,0,99,30,40,50];
+    assert_eq!(expected, run_program(input_values));
+  }
+
+  #[test]
   fn test_perform_addition_instruction() {
     assert_eq!(20, perform_instruction(10, 10, 1));
   }
