@@ -15,6 +15,5 @@ fn solve() {
 
   println!("wire1: {:?}", wire1);
   println!("wire2: {:?}", wire2);
-  println!("{:?}", crossed_wires::points_occupied_by_wire(wire2).len());
   println!("distance: {:?}", crossed_wires::manhatten_distance(crossed_wires::closest_crossing_point(wire1, wire2)));
 }
