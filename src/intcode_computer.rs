@@ -31,36 +31,36 @@ mod test {
   #[test]
   fn test_run_program_1() {
     let input_values = vec![1,0,0,0,99];
-    let expected = vec![2,0,0,0,99];
-    assert_eq!(expected, run_program(input_values));
+    assert_eq!(vec![2,0,0,0,99],
+      run_program(input_values));
   }
 
   #[test]
   fn test_run_program_2() {
     let input_values = vec![2,3,0,3,99];
-    let expected = vec![2,3,0,6,99];
-    assert_eq!(expected, run_program(input_values));
+    assert_eq!(vec![2,3,0,6,99],
+      run_program(input_values));
   }
 
   #[test]
   fn test_run_program_3() {
     let input_values = vec![2,4,4,5,99,0];
-    let expected = vec![2,4,4,5,99,9801];
-    assert_eq!(expected, run_program(input_values));
+    assert_eq!(vec![2,4,4,5,99,9801],
+      run_program(input_values));
   }
 
   #[test]
   fn test_run_program_4() {
     let input_values = vec![1,1,1,4,99,5,6,0,99];
-    let expected = vec![30,1,1,4,2,5,6,0,99];
-    assert_eq!(expected, run_program(input_values));
+    assert_eq!(vec![30,1,1,4,2,5,6,0,99],
+      run_program(input_values));
   }
 
   #[test]
   fn test_run_program_5() {
     let input_values = vec![1,9,10,3,2,3,11,0,99,30,40,50];
-    let expected = vec![3500,9,10,70,2,3,11,0,99,30,40,50];
-    assert_eq!(expected, run_program(input_values));
+    assert_eq!(vec![3500,9,10,70,2,3,11,0,99,30,40,50],
+      run_program(input_values));
   }
 
   #[test]
